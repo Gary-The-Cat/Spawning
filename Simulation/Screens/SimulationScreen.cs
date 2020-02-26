@@ -31,7 +31,7 @@ namespace Game.Screens
 
         List<Vertex[]> pathLines;
 
-        public void Update(List<int> sequence)
+        public void UpdateSequence(List<int> sequence)
         {
             pathLines = TownHelper.GetTownSequencePath(sequence);
         }

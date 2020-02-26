@@ -6,12 +6,9 @@ namespace Game.GeneticAlgorithm
 {
     public class World
     {
-        public int PopulationCount = 100;
+        public const int PopulationCount = 100;
 
         public List<Neighbour> Neighbours { get; set; }
-
-        public Neighbour BestNeighbour => 
-            Neighbours.OrderBy(n => n.GetFitness()).FirstOrDefault();
 
         public World()
         {
@@ -21,7 +18,7 @@ namespace Game.GeneticAlgorithm
         public void Spawn()
         {
             // Generate {PopulationCount} neighbours
-            for(int i = 0; i < this.PopulationCount; i++)
+            for(int i = 0; i < PopulationCount; i++)
             {
                 this.Neighbours.Add(GenerateNeighbour());
             }
@@ -35,6 +32,11 @@ namespace Game.GeneticAlgorithm
         public void DoGeneration()
         {
             throw new NotImplementedException();
+        }
+
+        public Neighbour GetBestNeighbour()
+        {
+            return Neighbours.OrderBy(n => n.GetFitness()).FirstOrDefault();
         }
     }
 }

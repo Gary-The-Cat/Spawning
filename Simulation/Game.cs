@@ -3,6 +3,7 @@ using Game.Screens;
 using SFML.Graphics;
 using SFML.Window;
 using System;
+using System.Collections.Generic;
 
 namespace Game
 {
@@ -16,7 +17,7 @@ namespace Game
         {
             // Create the main window
             window = new RenderWindow(new VideoMode(Configuration.Width, Configuration.Height), "Simulation");
-            window.SetFramerateLimit(60);
+            window.SetFramerateLimit(1);
 
             // Handle window events
             window.Closed += OnClose;
@@ -40,12 +41,14 @@ namespace Game
                 window.DispatchEvents();
 
                 // Draw the paths of the current best individual
-                //screen.Update(world.BestNeighbour.Sequence);
-
+                screen.UpdateSequence(new List<int>());
                 screen.Draw();
 
                 // Update the window
                 window.Display();
+
+                // Breed the next generation
+                //world.DoGeneration();
             }
         }
 
