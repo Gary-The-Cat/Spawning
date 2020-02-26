@@ -32,6 +32,8 @@ namespace Game
 
         public void Run()
         {
+            world.Spawn();
+
             while (window.IsOpen)
             {
                 // Clear the previous frame
