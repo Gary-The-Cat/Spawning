@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Game.GeneticAlgorithm
 {
     public class Neighbour
     {
+        private static Random random = new Random();
+
         public List<int> Sequence { get; set; }
 
         public Neighbour(List<int> sequence)
@@ -13,7 +16,7 @@ namespace Game.GeneticAlgorithm
 
         public double GetFitness()
         {
-            return -1;
+            return random.NextDouble();
         }
     }
 }
