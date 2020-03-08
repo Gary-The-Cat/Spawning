@@ -7,11 +7,11 @@ namespace Game
     { 
         public static float Scale = 1f;
 
-        public static uint Height = (uint)(720 * Scale);
+        public static uint Height = (uint)(2160 * Scale);
 
-        public static uint Width = (uint)(1280 * Scale);
+        public static uint Width = (uint)(3840 * Scale);
 
-        public static Color Background => new Color(0x23, 0x23, 0x23);
+        public static Color Background => new Color(233, 233, 233);
 
         public static bool AllowCameraMovement => true;
 
@@ -44,5 +44,7 @@ namespace Game
         public static FloatRect FourPlayerBottomLeft => new FloatRect(0, 0.5f, 0.5f, 0.5f);
 
         public static FloatRect FourPlayerBottomRight => new FloatRect(0.5f, 0.5f, 0.5f, 0.5f);
+
+        public static bool DrawToFile => false;
     }
 }

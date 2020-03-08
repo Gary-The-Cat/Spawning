@@ -9,9 +9,9 @@ namespace Game
 {
     public class Game
     {
-        SimulationScreen screen;
-        RenderWindow window;
-        World world;
+        private readonly SimulationScreen screen;
+        private readonly RenderWindow window;
+        private readonly World world;
         
         public Game()
         {
@@ -32,7 +32,7 @@ namespace Game
 
         public void Run()
         {
-            world.Spawn();
+            //world.Spawn();
 
             while (window.IsOpen)
             {
@@ -43,7 +43,8 @@ namespace Game
                 window.DispatchEvents();
 
                 // Draw the paths of the current best individual
-                screen.UpdateSequence(new List<int>());
+                //screen.UpdateSequence(world.GetBestNeighbour().Sequence);
+
                 screen.Draw();
 
                 // Update the window

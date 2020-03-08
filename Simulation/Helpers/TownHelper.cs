@@ -3,17 +3,17 @@ using SFML.System;
 using System;
 using System.Collections.Generic;
 using Game.ExtensionMethods;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Game.Helpers
 {
     public static class TownHelper
     {
-        public static List<Vertex[]> GetTownSequencePath(List<int> townSequence)
+        private const int Linethickness = 4;
+        private const int PathOffsetFromTown = 180;
+
+        public static List<ConvexShape> GetTownSequencePath(List<int> townSequence)
         {
-            var paths = new List<Vertex[]>();
+            var paths = new List<ConvexShape>();
 
             for(int i = 1; i < townSequence.Count; i++)
             {
@@ -22,14 +22,12 @@ namespace Game.Helpers
 
                 var directionVector = (toTown - fromTown).Normalize();
 
-                var startingPoint = fromTown + (directionVector * 75);
-                var endingPoint = toTown - (directionVector * 75);
+                var startingPoint = fromTown + (directionVector * PathOffsetFromTown);
+                var endingPoint = toTown - (directionVector * PathOffsetFromTown);
 
-                paths.Add(new Vertex[2]
-                {
-                new Vertex(startingPoint),
-                new Vertex(endingPoint)
-                });
+                var lumination = Convert.ToByte((20) * (i - 1));
+
+                paths.Add(SFMLGraphicsHelper.GetLine(startingPoint, endingPoint, Linethickness, new Color(lumination, lumination, lumination)));
             }
 
             return paths;
@@ -47,16 +45,16 @@ namespace Game.Helpers
 
         public static List<Vector2f> TownPositions = new List<Vector2f>()
         {
-            new Vector2f(1020, 450),
-            new Vector2f(350, 150),
-            new Vector2f(150, 250),
-            new Vector2f(340, 330),
-            new Vector2f(470, 480),
-            new Vector2f(690, 520),
-            new Vector2f(575, 360),
-            new Vector2f(1020, 270),
-            new Vector2f(950, 500),
-            new Vector2f(820, 150),
+            new Vector2f(3060, 1300), 
+            new Vector2f(1050, 450),
+            new Vector2f(450, 750),
+            new Vector2f(690, 1890),
+            new Vector2f(1410, 1830),
+            new Vector2f(2070, 1560),
+            new Vector2f(1725, 1080),
+            new Vector2f(3360, 810),
+            new Vector2f(3450, 1770),
+            new Vector2f(2460, 240),
         };
     }
 }

@@ -84,13 +84,13 @@ namespace Game.ExtensionMethods
         //returns the vector that is perpendicular to this one
         public static Vector2f PerendicularClockwise(this Vector2f v)
         {
-            return new Vector2f(-v.X, v.Y);
+            return new Vector2f(v.Y, -v.X);
         }
 
         //returns the vector that is perpendicular to this one
         public static Vector2f PerendicularCounterClockwise(this Vector2f v)
         {
-            return new Vector2f(v.X, -v.Y);
+            return new Vector2f(-v.Y, v.X);
         }
 
         //adjusts x and y so that the length of the vector does not exceed max

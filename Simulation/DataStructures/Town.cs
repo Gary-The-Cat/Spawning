@@ -11,10 +11,10 @@ namespace Game.DataStructures
         {
             this.Position = position;
 
-            this.Shape = new RectangleShape(new Vector2f(100, 100))
+            this.Shape = new RectangleShape(new Vector2f(300, 300))
             {
                 Texture = texture,
-                Origin = new Vector2f(50, 50),
+                Origin = new Vector2f(150, 150),
                 Position = position,
             };
 
